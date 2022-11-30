@@ -46,13 +46,6 @@ public class Generator : MonoBehaviour
 
     void Update()
     {
-#if UNITY_EDITOR
-        // デバッグ用、状態を切り替える
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            IsActive = !IsActive;
-            Debug.Log("ジェネレータのデバッグ機能で状態を切り替えました:" + IsActive);
-        }
-#endif
+
     }
 }

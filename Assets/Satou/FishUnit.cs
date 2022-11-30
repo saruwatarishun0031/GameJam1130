@@ -23,18 +23,7 @@ public class FishUnit : MonoBehaviour
 
     void Update()
     {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Capture();
-            Debug.Log("魚のデバッグ機能で移動を停止させました");
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Escape();
-            Debug.Log("魚のデバッグ機能で逃がしました");
-        }
-#endif
+
     }
 
     /// <summary>初期化処理</summary>
