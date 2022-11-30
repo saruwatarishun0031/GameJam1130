@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class Generator : MonoBehaviour
 {
-    [SerializeField] FishManager _fishManager;
+    //[SerializeField] FishManager _fishManager;
     /// <summary>生成する魚のプレハブ</summary>
     [SerializeField] GameObject[] _fishPrefabs;
     /// <summary>全ての魚が目指す画面中央のポイント</summary>
@@ -37,7 +37,7 @@ public class Generator : MonoBehaviour
             unit.Init(_centerPoint, _escapePoints[pr]);
             
             // 管理させる
-            _fishManager.AddFishList(unit);
+            //_fishManager.AddFishList(unit);
             
             yield return new WaitForSeconds(3.0f);
         }
