@@ -140,6 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6222919891637304805}
+  - component: {fileID: 680224319077731124}
   m_Layer: 0
   m_Name: CenterPoint
   m_TagString: Untagged
@@ -162,6 +163,18 @@ Transform:
   m_Father: {fileID: 6222919890555360127}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &680224319077731124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6222919891637304804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0715ce7c689b0794a81c8931021bc003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6222919891957680231
 GameObject:
   m_ObjectHideFlags: 0

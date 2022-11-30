@@ -38,7 +38,7 @@ public class FishUnit : MonoBehaviour
     }
 
     /// <summary>‰Šú‰»ˆ—</summary>
-    public void Init(Transform centerPoint, Transform escapePoint)
+    public void Init(Vector3 centerPoint, Transform escapePoint)
     {
         _fishMove.SetWayPoint(centerPoint, escapePoint);
         _fishMove.StartMove();

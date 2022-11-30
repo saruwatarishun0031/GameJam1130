@@ -34,7 +34,7 @@ public class Generator : MonoBehaviour
             // ‹›‚ğ¶¬‚µ‚Ä‰Šú‰»ˆ—‚ğŒÄ‚ÔB
             GameObject go = Instantiate(_fishPrefabs[fr], transform.position, Quaternion.identity);
             FishUnit unit = go.GetComponent<FishUnit>();
-            unit.Init(_centerPoint, _escapePoints[pr]);
+            unit.Init(_centerPoint.position, _escapePoints[pr]);
             
             // ŠÇ—‚³‚¹‚é
             //_fishManager.AddFishList(unit);

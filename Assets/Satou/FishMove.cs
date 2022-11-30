@@ -9,14 +9,14 @@ using DG.Tweening;
 public class FishMove : MonoBehaviour
 {
     // 魚の速度
-    // 魚が中央にとどまっている時間
+    [SerializeField] float _speed;
 
     // 釣り竿の座標、動的にnullになる
     Transform _rod;
     
     // 魚が目指す地点
     // _centerPointに向けて進んで、しばらく経ったら_escapePointに向けて進む
-    Transform _centerPoint;
+    Vector3 _centerPoint;
     Transform _escapePoint;
 
     Sequence _seq;
@@ -35,7 +35,7 @@ public class FishMove : MonoBehaviour
     /// 初期化、魚が目指す地点を渡す
     /// ジェネレーター側から呼ぶ想定になっている
     /// </summary>
-    public void SetWayPoint(Transform centerPoint, Transform escapePoint)
+    public void SetWayPoint(Vector3 centerPoint, Transform escapePoint)
     {
         _centerPoint = centerPoint;
         _escapePoint = escapePoint;
@@ -45,10 +45,10 @@ public class FishMove : MonoBehaviour
     public void StartMove()
     {
         _seq = DOTween.Sequence();
-        _seq.AppendCallback(() => transform.rotation = Quaternion.FromToRotation(Vector3.up, _centerPoint.position - transform.position));
-        _seq.Append(transform.DOMove(_centerPoint.position, 1.5f));
+        _seq.AppendCallback(() => transform.rotation = Quaternion.FromToRotation(Vector3.up, _centerPoint - transform.position));
+        _seq.Append(transform.DOMove(_centerPoint, _speed));
         _seq.AppendCallback(() => transform.rotation = Quaternion.FromToRotation(Vector3.up, _escapePoint.position - transform.position));
-        _seq.Append(transform.DOMove(_escapePoint.position, 1.5f));
+        _seq.Append(transform.DOMove(_escapePoint.position, _speed));
     }
 
     /// <summary>
@@ -61,7 +61,7 @@ public class FishMove : MonoBehaviour
         if (_seq != null) _seq.Kill();
         
         // 釣り竿を目指す
-        _seq.Append(transform.DOMove(_rod.position, 1.5f));
+        _seq.Append(transform.DOMove(_rod.position, _speed));
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ public class FishMove : MonoBehaviour
         if (_seq != null) _seq.Kill();
 
         // 釣り竿を目指す
-        _seq.Append(transform.DOMove(_escapePoint.position, 1.5f));
+        _seq.Append(transform.DOMove(_escapePoint.position, _speed));
     }
 
     /// <summary>
