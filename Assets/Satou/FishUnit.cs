@@ -58,4 +58,9 @@ public class FishUnit : MonoBehaviour
     {
         Debug.Log("’Þ‚ç‚ê‚Ü‚µ‚½");
     }
+
+    public void SetScore()
+    {
+
+    }
 }
