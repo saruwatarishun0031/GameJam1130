@@ -45,7 +45,9 @@ public class FishMove : MonoBehaviour
     public void StartMove()
     {
         _seq = DOTween.Sequence();
+        _seq.AppendCallback(() => transform.rotation = Quaternion.FromToRotation(Vector3.up, _centerPoint.position - transform.position));
         _seq.Append(transform.DOMove(_centerPoint.position, 1.5f));
+        _seq.AppendCallback(() => transform.rotation = Quaternion.FromToRotation(Vector3.up, _escapePoint.position - transform.position));
         _seq.Append(transform.DOMove(_escapePoint.position, 1.5f));
     }
 
