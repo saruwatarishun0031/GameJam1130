@@ -76,10 +76,12 @@ public class GameManager :MonoBehaviour
             yield return new WaitUntil(() => Input.GetButtonDown("Jump"));
             Debug.Log("Start");
             _start = true;
+            SoundManager.Instance.Play("BGM_ゲーム中");
         }
     }
     public void GameOver()
     {
+        SoundManager.Instance.Play("BGM_ゲームオーバー");
         _start = false;
         _time = 0f;
         Debug.Log("iikanzinopanel");
