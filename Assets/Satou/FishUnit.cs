@@ -11,6 +11,8 @@ public class FishUnit : MonoBehaviour
     [SerializeField] int _size;
     FishMove _fishMove;
 
+    GameManager _gameManager;
+
     void Awake()
     {
         _fishMove = GetComponent<FishMove>();
@@ -18,7 +20,7 @@ public class FishUnit : MonoBehaviour
 
     void Start()
     {
-
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -61,6 +63,6 @@ public class FishUnit : MonoBehaviour
 
     public void SetScore()
     {
-
+        _gameManager.FishCount(_size);
     }
 }
