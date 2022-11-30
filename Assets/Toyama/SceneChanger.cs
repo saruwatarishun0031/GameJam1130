@@ -9,6 +9,10 @@ public class SceneChanger : MonoBehaviour
     bool _istimer = false;
     void Update()
     {
+        if(Input.GetButtonDown("Jump"))
+        {
+            _istimer = true;
+        }
         if (_istimer)
         {
             _timer += Time.deltaTime;
