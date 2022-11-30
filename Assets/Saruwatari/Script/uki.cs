@@ -64,6 +64,7 @@ public class uki : MonoBehaviour
 
     public void Desu()
     {
+        Destroy(unit.gameObject);
         Destroy(this.gameObject);
         PlayerController.Instance.Battru = false;
     }
