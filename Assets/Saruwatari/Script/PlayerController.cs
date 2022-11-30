@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     Slider PwGauge;
     [SerializeField, Tooltip("ãõÇÃHP")]
     Slider HP;
+    uki _u;
     public float Pw = 1;
     float MaxPw = 100;
     public bool Battru;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        _u.GetComponent<uki>();
         Battru = false;
         
     }
@@ -123,14 +125,14 @@ public class PlayerController : MonoBehaviour
             c = true;
             HP.gameObject.SetActive(false);
             Battru = false;
-            
-
         }
 
         if (i == 0)
         {
+            _u.unit.SetScore();
             Debug.Log("èüóò");
             Battru = false;
+            HP.gameObject.SetActive(false);
             uki.Instance.Desu();
         }
     }

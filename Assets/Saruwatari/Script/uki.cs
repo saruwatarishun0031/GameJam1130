@@ -8,7 +8,7 @@ public class uki : MonoBehaviour
     [SerializeField]
     Collider2D a;
     public bool _duel = false;
-    FishUnit unit;
+    public FishUnit unit;
     // Start is called before the first frame update
     //シングルトンパターン（簡易型、呼び出される）
     public static uki Instance;

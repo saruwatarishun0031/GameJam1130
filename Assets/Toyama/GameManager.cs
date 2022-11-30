@@ -23,10 +23,12 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("ゲームオーバー時間")] float _gameOverTime = 0.5f;
     [SerializeField, Header("ゲームオーバー時のパネル")] GameObject _panel;
 
+    Generator[] _generators;
+
     private void Start()
     {
+        _generators = FindObjectsOfType<Generator>();
         GameStart();
-
     }
 
     private void Update()
@@ -87,12 +89,22 @@ public class GameManager : MonoBehaviour
             _taitl.SetActive(false);
             _pushText.SetActive(false);
             SoundManager.Instance.Play("BGM_ゲーム中");
+
+            foreach(Generator gene in _generators)
+            {
+                gene.IsActive = true;
+            }
         }
     }
     public void GameOver()
     {
         SoundManager.Instance.Play("BGM_ゲームオーバー");
         _panel.SetActive(true);
+
+        foreach(Generator gene in _generators)
+        {
+            gene.IsActive = false;
+        }
         //_largeText.GetComponent<RectTransform>().position = new Vector3(-270, -41, 0);
         //_midiumText.GetComponent<RectTransform>().position = new Vector3(41, -41, 0);
         //_smailText.GetComponent<RectTransform>().position = new Vector3(-358, -41, 0);
